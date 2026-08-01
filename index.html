@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MadhuVerse — Stories, Code & Conversations</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
-  <!-- FontAwesome for Instagram-like icons -->
+  <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- Top Instagram-style App Header -->
+  <!-- Top App Header -->
   <header class="app-header">
     <div class="brand-logo">MadhuVerse <i class="fa-solid fa-sparkles brand-icon"></i></div>
     <div class="header-actions">
@@ -20,11 +25,11 @@
   </header>
 
   <main class="main-content">
-    
-    <!-- Hero Advertisement Section -->
+
+    <!-- Hero Section -->
     <section class="hero-banner">
       <div class="hero-badge"><i class="fa-solid fa-fire"></i> Welcome to MadhuVerse</div>
-      <h1>Your Go-To Hub for Tech, Stories & Q&A</h1>
+      <h1>Your go-to hub for <span class="chalk-underline">tech, stories &amp; Q&amp;A</span></h1>
       <p>An interactive corner where I share college experiences, tech projects, creative writings, and directly answer your questions and comments!</p>
       <div class="hero-actions">
         <button class="btn btn-primary" onclick="openNavModal('stories')">Explore Stories <i class="fa-solid fa-arrow-right"></i></button>
@@ -32,11 +37,11 @@
       </div>
     </section>
 
-    <!-- Instagram Story Highlights Navigation (With Thumbnails) -->
+    <!-- Highlights Navigation -->
     <section class="story-highlights-container">
       <h3 class="section-title">Explore Highlights</h3>
       <div class="story-highlights">
-        
+
         <div class="story-item" onclick="openNavModal('about')">
           <div class="story-ring">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="About Me Thumbnail" />
@@ -62,7 +67,7 @@
           <div class="story-ring">
             <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=200&q=80" alt="Contact Us Thumbnail" />
           </div>
-          <span>Q&A / Contact</span>
+          <span>Q&amp;A / Contact</span>
         </div>
 
       </div>
@@ -84,17 +89,17 @@
       </div>
     </section>
 
-    <!-- Feed / Grid Posts Section -->
+    <!-- Feed Section -->
     <section class="feed-section">
       <div class="feed-header">
-        <h3><i class="fa-solid fa-grid-2"></i> Recent Posts & Updates</h3>
+        <h3><i class="fa-solid fa-grid-2"></i> Recent Posts &amp; Updates</h3>
       </div>
       <div id="experiences-grid" class="instagram-grid"></div>
     </section>
 
   </main>
 
-  <!-- Bottom Instagram-style Navigation Bar -->
+  <!-- Bottom Navigation Bar -->
   <nav class="bottom-nav">
     <button class="nav-tab active" onclick="scrollToTop()" title="Home">
       <i class="fa-solid fa-house"></i>
@@ -120,11 +125,11 @@
 
     <button class="nav-tab" onclick="openNavModal('contact')" title="Q&A & Contact">
       <i class="fa-regular fa-paper-plane"></i>
-      <span>Q&A</span>
+      <span>Q&amp;A</span>
     </button>
   </nav>
 
-  <!-- Pop-Up Modal Container for Bottom Nav / Highlight Clicks -->
+  <!-- Modal Container -->
   <div id="app-modal" class="modal-overlay hidden">
     <div class="modal-card">
       <button class="modal-close-btn" onclick="closeAppModal()">&times;</button>
