@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MadhuVerse — Stories, Code & Conversations</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- FontAwesome for Instagram-like icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Top Instagram-style App Header -->
+  <header class="app-header">
+    <div class="brand-logo">MadhuVerse <i class="fa-solid fa-sparkles brand-icon"></i></div>
+    <div class="header-actions">
+      <button class="icon-btn" id="notifications-btn" title="Activity"><i class="fa-regular fa-heart"></i></button>
+      <button class="icon-btn" id="direct-msg-btn" title="Direct Messages"><i class="fa-regular fa-paper-plane"></i></button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    
+    <!-- Hero Advertisement Section -->
+    <section class="hero-banner">
+      <div class="hero-badge"><i class="fa-solid fa-fire"></i> Welcome to MadhuVerse</div>
+      <h1>Your Go-To Hub for Tech, Stories & Q&A</h1>
+      <p>An interactive corner where I share college experiences, tech projects, creative writings, and directly answer your questions and comments!</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="openNavModal('stories')">Explore Stories <i class="fa-solid fa-arrow-right"></i></button>
+        <button class="btn btn-secondary" onclick="openNavModal('contact')">Ask a Question <i class="fa-regular fa-comment-dots"></i></button>
+      </div>
+    </section>
+
+    <!-- Instagram Story Highlights Navigation (With Thumbnails) -->
+    <section class="story-highlights-container">
+      <h3 class="section-title">Explore Highlights</h3>
+      <div class="story-highlights">
+        
+        <div class="story-item" onclick="openNavModal('about')">
+          <div class="story-ring">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="About Me Thumbnail" />
+          </div>
+          <span>About Me</span>
+        </div>
+
+        <div class="story-item" onclick="openNavModal('stories')">
+          <div class="story-ring">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=200&q=80" alt="Stories Thumbnail" />
+          </div>
+          <span>Stories</span>
+        </div>
+
+        <div class="story-item" onclick="openNavModal('followers')">
+          <div class="story-ring">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=200&q=80" alt="Community Thumbnail" />
+          </div>
+          <span>Network</span>
+        </div>
+
+        <div class="story-item" onclick="openNavModal('contact')">
+          <div class="story-ring">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=200&q=80" alt="Contact Us Thumbnail" />
+          </div>
+          <span>Q&A / Contact</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Profile Stats Bar -->
+    <section class="profile-stats-card">
+      <div class="stat-box" onclick="openNavModal('stories')">
+        <span class="stat-number" id="post-count">3</span>
+        <span class="stat-label">Posts</span>
+      </div>
+      <div class="stat-box" onclick="openNavModal('followers')">
+        <span class="stat-number">1.2k</span>
+        <span class="stat-label">Followers</span>
+      </div>
+      <div class="stat-box" onclick="openNavModal('followers')">
+        <span class="stat-number">450</span>
+        <span class="stat-label">Following</span>
+      </div>
+    </section>
+
+    <!-- Feed / Grid Posts Section -->
+    <section class="feed-section">
+      <div class="feed-header">
+        <h3><i class="fa-solid fa-grid-2"></i> Recent Posts & Updates</h3>
+      </div>
+      <div id="experiences-grid" class="instagram-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Instagram-style Navigation Bar -->
+  <nav class="bottom-nav">
+    <button class="nav-tab active" onclick="scrollToTop()" title="Home">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </button>
+
+    <button class="nav-tab" onclick="openNavModal('about')" title="About Me">
+      <div class="nav-avatar-ring">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="nav-avatar" alt="About" />
+      </div>
+      <span>About</span>
+    </button>
+
+    <button class="nav-tab" onclick="openNavModal('stories')" title="Stories & Projects">
+      <i class="fa-regular fa-compass"></i>
+      <span>Explore</span>
+    </button>
+
+    <button class="nav-tab" onclick="openNavModal('followers')" title="Followers & Following">
+      <i class="fa-solid fa-user-group"></i>
+      <span>Network</span>
+    </button>
+
+    <button class="nav-tab" onclick="openNavModal('contact')" title="Q&A & Contact">
+      <i class="fa-regular fa-paper-plane"></i>
+      <span>Q&A</span>
+    </button>
+  </nav>
+
+  <!-- Pop-Up Modal Container for Bottom Nav / Highlight Clicks -->
+  <div id="app-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAppModal()">&times;</button>
+      <div id="modal-dynamic-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
