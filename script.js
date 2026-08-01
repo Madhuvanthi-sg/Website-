@@ -58,17 +58,17 @@ function renderFeed() {
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="post-avatar" alt="Madhuvanthi">
         <span class="post-user">madhuvanthi_g</span>
       </div>
-      
+
       <img src="${item.image}" alt="${item.title}" class="post-img" onclick="openStoryDetail(${item.id})">
-      
+
       <div class="post-actions">
         <i class="fa-regular fa-heart" onclick="toggleLike(this)"></i>
         <i class="fa-regular fa-comment" onclick="openNavModal('contact')"></i>
         <i class="fa-regular fa-paper-plane" onclick="openNavModal('contact')"></i>
       </div>
-      
+
       <div class="post-body">
-        <div style="font-size:0.8rem; font-weight:600; color:var(--accent);">${item.category}</div>
+        <div style="font-family:var(--font-mono); font-size:0.72rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--accent);">${item.category}</div>
         <h4 class="post-title" onclick="openStoryDetail(${item.id})">${item.title}</h4>
         <p class="post-desc">${item.desc}</p>
         <button class="btn btn-primary" onclick="openStoryDetail(${item.id})" style="margin-top:0.75rem; width:100%;">Read Full Post</button>
@@ -81,7 +81,7 @@ function toggleLike(icon) {
   icon.classList.toggle('fa-regular');
   icon.classList.toggle('fa-solid');
   if (icon.classList.contains('fa-solid')) {
-    icon.style.color = '#ed4956';
+    icon.style.color = 'var(--like)';
   } else {
     icon.style.color = 'inherit';
   }
@@ -101,28 +101,28 @@ function openNavModal(type) {
   if (type === 'about') {
     html = `
       <div style="text-align:center;">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" style="width:90px; height:90px; border-radius:50%; object-fit:cover; margin-bottom:0.75rem; border: 3px solid var(--accent);">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" style="width:90px; height:90px; border-radius:50%; object-fit:cover; margin-bottom:0.75rem; border: 2.5px dashed var(--accent); padding:3px;">
         <h2>About Madhuvanthi G</h2>
-        <p style="color:var(--muted); font-size:0.9rem;">Computer Science Student & Content Creator</p>
+        <p style="color:var(--muted); font-size:0.9rem; font-family:var(--font-mono);">Computer Science Student &amp; Content Creator</p>
         <p style="text-align:left; font-size:0.95rem; line-height:1.6; margin-top:1rem;">
-          Welcome to <strong>${brandName}</strong>! I am pursuing my degree in Computer Science while actively exploring software engineering, database design, teaching, and story writing.
+          Welcome to <strong style="color:var(--accent);">${brandName}</strong>! I am pursuing my degree in Computer Science while actively exploring software engineering, database design, teaching, and story writing.
         </p>
-        <p style="text-align:left; font-size:0.95rem; line-height:1.6;">
+        <p style="text-align:left; font-size:0.95rem; line-height:1.6; color:var(--muted);">
           This interactive platform acts as my open forum where I share learning updates, stories, and directly answer questions submitted by visitors!
         </p>
       </div>
     `;
   } else if (type === 'stories') {
     html = `
-      <h3><i class="fa-solid fa-book-open"></i> Stories & Experiences</h3>
+      <h3><i class="fa-solid fa-book-open"></i> Stories &amp; Experiences</h3>
       <p style="color:var(--muted); font-size:0.85rem; margin-bottom:1rem;">Select a topic to read the full entry:</p>
       <div style="display:flex; flex-direction:column; gap:0.75rem;">
         ${experiences.map(item => `
-          <div onclick="openStoryDetail(${item.id})" style="display:flex; gap:0.75rem; align-items:center; background:#f8fafc; padding:0.65rem; border-radius:8px; cursor:pointer;">
+          <div onclick="openStoryDetail(${item.id})" style="display:flex; gap:0.75rem; align-items:center; background:var(--surface-2); padding:0.65rem; border-radius:8px; cursor:pointer; border:1px solid var(--rule);">
             <img src="${item.image}" style="width:60px; height:60px; border-radius:6px; object-fit:cover;">
             <div>
-              <strong style="font-size:0.9rem; display:block;">${item.title}</strong>
-              <span style="font-size:0.75rem; color:var(--accent);">${item.category}</span>
+              <strong style="font-size:0.9rem; display:block; color:var(--chalk);">${item.title}</strong>
+              <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--accent);">${item.category}</span>
             </div>
           </div>
         `).join('')}
@@ -135,24 +135,24 @@ function openNavModal(type) {
       <form id="qa-form" onsubmit="handleFormSubmit(event)">
         <div style="margin-bottom:0.75rem;">
           <label style="font-size:0.85rem; font-weight:600;">Your Name</label>
-          <input type="text" name="name" required placeholder="e.g. Priya" style="width:100%; padding:0.6rem; border:1px solid var(--border); border-radius:8px; margin-top:0.25rem;">
+          <input type="text" name="name" required placeholder="e.g. Priya" style="width:100%; padding:0.6rem; border:1px solid var(--rule); border-radius:8px; margin-top:0.25rem;">
         </div>
         <div style="margin-bottom:0.75rem;">
           <label style="font-size:0.85rem; font-weight:600;">Email Address</label>
-          <input type="email" name="email" required placeholder="your@email.com" style="width:100%; padding:0.6rem; border:1px solid var(--border); border-radius:8px; margin-top:0.25rem;">
+          <input type="email" name="email" required placeholder="your@email.com" style="width:100%; padding:0.6rem; border:1px solid var(--rule); border-radius:8px; margin-top:0.25rem;">
         </div>
         <div style="margin-bottom:1rem;">
           <label style="font-size:0.85rem; font-weight:600;">Question or Comment</label>
-          <textarea name="message" rows="3" required placeholder="Write your question here..." style="width:100%; padding:0.6rem; border:1px solid var(--border); border-radius:8px; margin-top:0.25rem; font-family:inherit;"></textarea>
+          <textarea name="message" rows="3" required placeholder="Write your question here..." style="width:100%; padding:0.6rem; border:1px solid var(--rule); border-radius:8px; margin-top:0.25rem; font-family:inherit;"></textarea>
         </div>
         <button type="submit" class="btn btn-primary" style="width:100%;">Post Question</button>
       </form>
-      <div id="qa-result" style="margin-top:0.75rem; font-size:0.9rem; color:#16a34a; font-weight:600;"></div>
+      <div id="qa-result" style="margin-top:0.75rem; font-size:0.9rem; color:var(--accent); font-weight:600;"></div>
     `;
   } else if (type === 'followers') {
     html = `
-      <h3><i class="fa-solid fa-user-group"></i> Network & Community</h3>
-      <div style="display:flex; border-bottom:1px solid var(--border); margin-bottom:1rem; gap:1rem; font-weight:600; font-size:0.9rem; padding-bottom:0.5rem;">
+      <h3><i class="fa-solid fa-user-group"></i> Network &amp; Community</h3>
+      <div style="display:flex; border-bottom:1px solid var(--rule); margin-bottom:1rem; gap:1rem; font-weight:600; font-size:0.9rem; padding-bottom:0.5rem;">
         <span style="color:var(--accent); border-bottom:2px solid var(--accent); padding-bottom:0.25rem;">1.2k Followers</span>
         <span style="color:var(--muted);">450 Following</span>
       </div>
@@ -166,7 +166,7 @@ function openNavModal(type) {
                 <span>${f.username}</span>
               </div>
             </div>
-            <button class="btn btn-secondary" style="color:var(--text); background:#f1f5f9; font-size:0.75rem; padding:0.35rem 0.75rem;" onclick="this.textContent = this.textContent === 'Following' ? 'Follow' : 'Following'">Following</button>
+            <button class="btn btn-secondary" style="font-size:0.75rem; padding:0.35rem 0.75rem;" onclick="this.textContent = this.textContent === 'Following' ? 'Follow' : 'Following'">Following</button>
           </div>
         `).join('')}
       </div>
@@ -186,11 +186,11 @@ function openStoryDetail(id) {
 
   container.innerHTML = `
     <img src="${item.image}" style="width:100%; height:200px; object-fit:cover; border-radius:10px; margin-bottom:0.85rem;">
-    <span style="font-size:0.75rem; font-weight:700; color:var(--accent); text-transform:uppercase;">${item.category}</span>
+    <span style="font-family:var(--font-mono); font-size:0.75rem; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em;">${item.category}</span>
     <h2 style="margin:0.25rem 0 0.75rem 0;">${item.title}</h2>
-    <p style="line-height:1.6; font-size:0.95rem; color:var(--text);">${item.fullStory}</p>
-    
-    <div style="margin-top:1.25rem; padding-top:0.75rem; border-top:1px solid var(--border);">
+    <p style="line-height:1.6; font-size:0.95rem; color:var(--chalk);">${item.fullStory}</p>
+
+    <div style="margin-top:1.25rem; padding-top:0.75rem; border-top:1px solid var(--rule);">
       <button class="btn btn-primary" onclick="openNavModal('contact')" style="width:100%;">Comment on this Story</button>
     </div>
   `;
@@ -208,7 +208,7 @@ function handleFormSubmit(e) {
   const form = e.target;
   const name = new FormData(form).get('name');
   const resultDiv = document.getElementById('qa-result');
-  
+
   if (resultDiv) {
     resultDiv.textContent = `Thanks ${name}! Your question has been submitted. I'll post a reply soon.`;
   }
@@ -222,7 +222,7 @@ function scrollToTop() {
 // Initial render
 document.addEventListener('DOMContentLoaded', () => {
   renderFeed();
-  
+
   // Close modal when clicking dark backdrop
   const modal = document.getElementById('app-modal');
   modal?.addEventListener('click', (e) => {
